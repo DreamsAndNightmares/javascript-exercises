@@ -22,14 +22,21 @@ class Circle {
   set radius(val) {
     this.rad[0] = val;
   }
-  surface(val) {
+  surface() {
     return this.rad * this.rad * Math.PI;
   }
 }
 
-let circle = new Circle([5, 7, 10]);
-console.log(circle.surface());
+//Create circle
+let circle = new Circle(1, 1, 10);
 
-/*return this.rad * this.rad * Math.PI;
-let x = new Circle(0, 0, 0);
-console.log(x.set(yPos)[0]);*/
+//Move
+circle.yPos = 5;
+circle.xPos = 5;
+//Change radius
+circle.rad = 20;
+//Calculate surface
+circle.surface();
+
+
+console.log(circle.surface());
