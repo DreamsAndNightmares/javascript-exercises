@@ -1,16 +1,14 @@
 const readlineSync = require("readline-sync");
-let k = 0;
 let n = 0;
-let m = 0;
+let total = 0;
 let questions = 0;
 
-k = readlineSync.question("Enter a number: ");
-m = m + n;
+n = new Number(readlineSync.question("Enter a number: "));
+total = n;
 
-while(questions != k)
+while(questions != total)
 {
-  n = readlineSync.question("Enter a number: ");
-  m = m + n;
-  questions++;
+  n = n + new Number(readlineSync.question("Enter a number: "));
+  ++questions;
 }
-console.log(m);
+console.log(k);
