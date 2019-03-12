@@ -1,43 +1,64 @@
-const readlineSync = require("readline-sync");
+const readlineSync=require("readline-sync");
+const fs = require('fs');
+let option;
+let add;
+let remove;
+let pizzas = [];
 
-let option = 0;
-let config = '{"result":true, "count":42}';
-let flavors;
+displayMenu();
 
-menu();
-
-while(option != 4)
+function displayMenu()
 {
-  if(option == 1)
-  {
-    console.log('\033[2J');
-    flavors = JSON.parse(config);
-    console.log(flavors.count);
-  }
-  else if (option == 2)
-  {
-    console.log('\033[2J');
-  }
-  else if (option == 3)
-  {
-    console.log('\033[2J');
-  }
-  else if (option == 4)
-  {
-
-  }
-
+  console.log('\033[2J');
+  console.log("Hello! Welcome to the Pizza Flavors Manager." + '\n');
+  console.log("Please choose your actions:" + '\n');
+  console.log("1 - List all the pizza flavors");
+  console.log("2 - Add a new pizza flavor");
+  console.log("3 - Remove a pizza flavor");
+  console.log("4 - Exit this program" + '\n');
+  option = new Number(readlineSync.question("Enter your action's number: "));
+  if(option == 1) { displayPizza(); }
+  else if(option == 2) { addPizza(); }
+  else if(option == 3) { removePizza(); }
+  else if(option == 4) { }
+  else { displayMenu(); }
 }
 
-function menu()
+function displayPizza()
 {
-  console.log(
-  "Hello! Welcome to the Pizza Flavors Manager." + '\n' + '\n' +
-  "Please choose your actions:" + '\n' +
-  "1 - List all the pizza flavors" + '\n' +
-  "2 - Add a new pizza flavor" + '\n' +
-  "3 - Remove a pizza flavor" + '\n' +
-  "4 - Exit this program"
-  );
-  option = new Number(readlineSync.question("Enter your action's number: "));
+  if(pizzas.length == 0)
+  {
+    console.log("No pizzas saved yet.");
+  }
+  else
+  {
+    pizzas.forEach(function(flavor) { console.log(flavor); });
+  }
+  displayMenu();
+}
+
+function addPizza()
+{
+  add = readlineSync.question("Add a new pizza flavor: ");
+  if(add.length != 0)
+  {
+    pizzas.push(add);
+  }
+  else {
+    console.log("Woops!");
+  }
+  displayMenu();
+}
+
+function removePizza()
+{
+  remove = readlineSync.question("Add a new pizza flavor: ");
+  if(remove.length != 0)
+  {
+    var index = pizzas.indexOf(remove);
+    if (index > -1) {
+      pizzas.splice(index, 1);
+    }
+  }
+  displayMenu();
 }
