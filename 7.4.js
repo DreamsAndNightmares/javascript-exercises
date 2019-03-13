@@ -26,6 +26,7 @@ function displayMenu()
 
 function displayPizza()
 {
+  console.log("Pizza flavors: " + '\n');
   if(pizzas.length == 0)
   {
     console.log("No pizzas saved yet.");
@@ -34,6 +35,7 @@ function displayPizza()
   {
     pizzas.forEach(function(flavor) { console.log(flavor); });
   }
+  readlineSync.keyInPause();
   displayMenu();
 }
 
@@ -43,9 +45,6 @@ function addPizza()
   if(add.length != 0)
   {
     pizzas.push(add);
-  }
-  else {
-    console.log("Woops!");
   }
   displayMenu();
 }
