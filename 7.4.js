@@ -50,7 +50,7 @@ function addPizza()
 
 function removePizza()
 {
-  remove = readlineSync.question("Add a new pizza flavor: ");
+  remove = readlineSync.question("Remove a new pizza flavor: ");
   if(remove.length != 0)
   {
     var index = pizzas.indexOf(remove);
