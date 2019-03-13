@@ -1,5 +1,4 @@
 const readlineSync=require("readline-sync");
-const fs = require('fs');
 let option;
 let add;
 let remove;
